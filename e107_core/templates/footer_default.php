@@ -221,12 +221,12 @@ if ($pref['developer'])
 	if (ob_get_level() != $oblev_at_start)
 	{
 		$oblev = ob_get_level();
-		$obdbg = "<div class='e-debug ob-error'>Software defect detected; ob_*() level {$oblev} at end instead of ($oblev_at_start). POPPING EXTRA BUFFERS!</div>";
+		#$obdbg = "<div class='e-debug ob-error'>Software defect detected; ob_*() level {$oblev} at end instead of ($oblev_at_start). POPPING EXTRA BUFFERS!</div>";
 		while (ob_get_level() > $oblev_at_start)
 		{
-			ob_end_flush();
+			ob_end_clean();
 		}
-		echo $obdbg;
+		#echo $obdbg;
 	}
 	// 061109 PHP 5 has a bug such that the starting level might be zero or one.
 	// Until they work that out, we'll disable this message.
@@ -395,7 +395,7 @@ $page = $ehd->getOutput();
 
 
 // real output
-echo $page;
+#echo $page;
 
 unset($In_e107_Footer);
 

@@ -10,6 +10,11 @@
  *
 */
 
+for ($i = 0; $i < ob_get_level(); $i++) ob_end_flush();
+ob_implicit_flush(1);
+ob_end_flush();
+
+
 if (!defined('e107_INIT')) { exit; }
 if(!defined('USER_AREA'))
 {
