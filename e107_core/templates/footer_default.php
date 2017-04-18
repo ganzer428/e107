@@ -224,7 +224,7 @@ if ($pref['developer'])
 		#$obdbg = "<div class='e-debug ob-error'>Software defect detected; ob_*() level {$oblev} at end instead of ($oblev_at_start). POPPING EXTRA BUFFERS!</div>";
 		while (ob_get_level() > $oblev_at_start)
 		{
-			ob_end_clean();
+			ob_end_flush();
 		}
 		#echo $obdbg;
 	}
@@ -395,7 +395,7 @@ $page = $ehd->getOutput();
 
 
 // real output
-#echo $page;
+echo $page;
 
 unset($In_e107_Footer);
 
